@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(gh auth status)",
+      "Bash(scoop --version:*)",
+      "Bash(scoop install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(export GITHUB_TOKEN=ghp_jdUzzokL0UivqfOtuDKd9tm76Nl2hj1l06qq)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git count-objects:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "openai-codex"
+  ]
+}
