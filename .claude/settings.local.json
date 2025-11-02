@@ -12,7 +12,8 @@
       "Bash(export GITHUB_TOKEN=ghp_jdUzzokL0UivqfOtuDKd9tm76Nl2hj1l06qq)",
       "Bash(git push:*)",
       "Bash(git rm:*)",
-      "Bash(git count-objects:*)"
+      "Bash(git count-objects:*)",
+      "Bash(curl -H \"Authorization: token ghp_jdUzzokL0UivqfOtuDKd9tm76Nl2hj1l06qq\" https://api.github.com/user)"
     ]
   },
   "enableAllProjectMcpServers": true,

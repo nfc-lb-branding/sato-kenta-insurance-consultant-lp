@@ -180,6 +180,26 @@ NFCカードにこのLPのURLを書き込みます。
 
 ### Vercelでのデプロイ（推奨）
 
+> **⚠️ 重要: nfclpbranding-tsアカウントでデプロイする場合**
+>
+> リポジトリリストにnfclpbranding-tsのリポジトリが表示されない場合は、**画面上部の「Enter a Git repository URL to deploy...」フィールドに直接GitHubリポジトリURLを入力してください。**
+>
+> **例:**
+> ```
+> https://github.com/nfclpbranding-ts/sato-kenta-insurance-consultant-lp
+> ```
+>
+> これが最も確実な方法です！入力後、「Continue」をクリックしてデプロイを進めてください。
+
+#### 方法1: WebUIからデプロイ（推奨）
+
+1. https://vercel.com にアクセス
+2. GitHubアカウントでログイン
+3. **画面上部のURL入力フィールドに直接リポジトリURLを貼り付け**
+4. 「Continue」→ 「Deploy」をクリック
+
+#### 方法2: Vercel CLIからデプロイ
+
 ```bash
 # Vercel CLIのインストール
 npm install -g vercel
