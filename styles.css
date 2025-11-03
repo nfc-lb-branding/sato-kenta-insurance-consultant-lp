@@ -831,3 +831,300 @@ button:focus {
         gap: var(--space-xl);
     }
 }
+
+/* ========================
+   動画セクション
+   ======================== */
+.video-section {
+    padding: var(--space-2xl) 0;
+    background: var(--off-white);
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video-title {
+    font-family: var(--font-ja);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--space-sm);
+}
+
+.video-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+    background: var(--primary-navy);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(26, 43, 74, 0.15);
+    margin-bottom: var(--space-xl);
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+}
+
+.btn-video-save {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 1rem 2rem;
+    background: var(--primary-navy);
+    color: var(--pure-white);
+    border: 2px solid var(--primary-navy);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(26, 43, 74, 0.15);
+}
+
+.btn-video-save svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-video-save:hover {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+}
+
+.btn-video-save:hover svg {
+    transform: translateY(2px);
+}
+
+/* ========================
+   保存ガイドセクション
+   ======================== */
+.save-guide {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, #0a1628 100%);
+    color: var(--pure-white);
+}
+
+.save-guide-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.save-guide-title {
+    font-family: var(--font-ja);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    color: var(--pure-white);
+}
+
+.save-guide-subtitle {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.device-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+}
+
+.device-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: var(--pure-white);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.device-tab svg {
+    width: 24px;
+    height: 24px;
+}
+
+.device-tab:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.device-tab.active {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-navy);
+}
+
+.device-instructions {
+    position: relative;
+    min-height: 400px;
+}
+
+.instruction-panel {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.instruction-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.instruction-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.step {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(201, 169, 97, 0.3);
+    transform: translateX(8px);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    font-family: var(--font-en);
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--pure-white);
+}
+
+.step-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.save-guide-footer {
+    margin-top: var(--space-2xl);
+    padding: var(--space-lg);
+    background: rgba(201, 169, 97, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    text-align: center;
+}
+
+.save-guide-footer p {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    margin: 0;
+}
+
+/* レスポンシブ: モバイル */
+@media (max-width: 767px) {
+    .video-wrapper {
+        border-radius: 12px;
+    }
+
+    .btn-video-save {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .device-tabs {
+        flex-direction: column;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .device-tab {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .step {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .step:hover {
+        transform: none;
+    }
+}
+
+/* レスポンシブ: タブレット以上 */
+@media (min-width: 768px) {
+    .video-section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .save-guide {
+        padding: var(--space-3xl) 0;
+    }
+}

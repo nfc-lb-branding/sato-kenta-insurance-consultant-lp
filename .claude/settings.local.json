@@ -13,7 +13,9 @@
       "Bash(git push:*)",
       "Bash(git rm:*)",
       "Bash(git count-objects:*)",
-      "Bash(curl -H \"Authorization: token ghp_jdUzzokL0UivqfOtuDKd9tm76Nl2hj1l06qq\" https://api.github.com/user)"
+      "Bash(curl -H \"Authorization: token ghp_jdUzzokL0UivqfOtuDKd9tm76Nl2hj1l06qq\" https://api.github.com/user)",
+      "WebFetch(domain:tsailink0611-takashi-ai-consultant-iota.vercel.app)",
+      "Bash(videos/.gitkeep)"
     ]
   },
   "enableAllProjectMcpServers": true,

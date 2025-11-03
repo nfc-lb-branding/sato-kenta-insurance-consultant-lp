@@ -49,6 +49,34 @@
         </div>
     </section>
 
+    <!-- 動画セクション -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <h2 class="video-title">佐藤健太からのメッセージ</h2>
+                <p class="video-subtitle">私の想いと、お客様へのお約束をお話しします</p>
+
+                <div class="video-wrapper">
+                    <video id="intro-video" controls poster="images/hero-photo.jpg">
+                        <source src="videos/intro.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+
+                <div class="video-actions">
+                    <a href="#save-guide" class="btn-video-save">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.83333 8.33333L10 12.5L14.1667 8.33333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 12.5V2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>このページを保存する</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- サービスセクション -->
     <section class="services">
         <div class="container">
@@ -152,6 +180,93 @@
                         <div class="info-label">Company</div>
                         <div class="info-value">〇〇生命保険</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 保存ガイドセクション -->
+    <section id="save-guide" class="save-guide">
+        <div class="container">
+            <div class="save-guide-content">
+                <h2 class="save-guide-title">このページを保存する</h2>
+                <p class="save-guide-subtitle">ホーム画面に追加して、いつでもアクセスできるようにしましょう</p>
+
+                <div class="device-tabs">
+                    <button class="device-tab active" data-device="iphone">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 18H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>iPhone</span>
+                    </button>
+                    <button class="device-tab" data-device="android">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 1L7 1C5.89543 1 5 1.89543 5 3L5 21C5 22.1046 5.89543 23 7 23L17 23C18.1046 23 19 22.1046 19 21L19 3C19 1.89543 18.1046 1 17 1Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 20H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Android</span>
+                    </button>
+                </div>
+
+                <div class="device-instructions">
+                    <!-- iPhone用 -->
+                    <div class="instruction-panel active" id="iphone-instructions">
+                        <div class="instruction-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">共有ボタンをタップ</h3>
+                                    <p class="step-description">画面下部（またはアドレスバー）の共有ボタン <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:inline-block; vertical-align: middle;"><path d="M8 11V3M8 3L11 6M8 3L5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 11V13H3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> をタップします</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">「ホーム画面に追加」を選択</h3>
+                                    <p class="step-description">メニューから「ホーム画面に追加」を探してタップします</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">「追加」をタップ</h3>
+                                    <p class="step-description">確認画面で「追加」をタップすると、ホーム画面にアイコンが表示されます</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Android用 -->
+                    <div class="instruction-panel" id="android-instructions">
+                        <div class="instruction-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">メニューを開く</h3>
+                                    <p class="step-description">画面右上の「︙」（メニューボタン）をタップします</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">「ホーム画面に追加」を選択</h3>
+                                    <p class="step-description">メニューから「ホーム画面に追加」または「ブックマーク」を選択します</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3 class="step-title">「追加」をタップ</h3>
+                                    <p class="step-description">確認画面で「追加」をタップすると、ホーム画面にアイコンが表示されます</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="save-guide-footer">
+                    <p>💡 ホーム画面に追加すると、アプリのように素早くアクセスできます</p>
                 </div>
             </div>
         </div>

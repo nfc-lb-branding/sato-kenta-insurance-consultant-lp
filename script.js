@@ -221,3 +221,40 @@ document.addEventListener('click', (e) => {
         trackEvent('Service', 'click', cardTitle || 'Unknown Service');
     }
 });
+
+// ========================================
+// 保存ガイド - デバイスタブ切り替え
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const deviceTabs = document.querySelectorAll('.device-tab');
+    const instructionPanels = document.querySelectorAll('.instruction-panel');
+
+    deviceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const device = tab.dataset.device;
+
+            // すべてのタブとパネルから active クラスを削除
+            deviceTabs.forEach(t => t.classList.remove('active'));
+            instructionPanels.forEach(p => p.classList.remove('active'));
+
+            // クリックされたタブと対応するパネルに active クラスを追加
+            tab.classList.add('active');
+            const targetPanel = document.getElementById(`${device}-instructions`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+
+            // トラッキング
+            trackEvent('SaveGuide', 'switch_device', device);
+        });
+    });
+
+    // 保存ボタンクリック時のトラッキング
+    const saveButtons = document.querySelectorAll('.btn-video-save');
+    saveButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            trackEvent('Video', 'save_page', 'Save Button Click');
+        });
+    });
+});
