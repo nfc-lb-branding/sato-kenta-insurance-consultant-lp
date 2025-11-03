@@ -223,38 +223,101 @@ document.addEventListener('click', (e) => {
 });
 
 // ========================================
-// 保存ガイド - デバイスタブ切り替え
+// 動画表示ボタン
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const deviceTabs = document.querySelectorAll('.device-tab');
-    const instructionPanels = document.querySelectorAll('.instruction-panel');
+    const showVideoBtn = document.getElementById('show-video-btn');
+    const videoWrapper = document.getElementById('video-player-wrapper');
+    const video = document.getElementById('intro-video');
 
-    deviceTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const device = tab.dataset.device;
+    if (showVideoBtn && videoWrapper && video) {
+        showVideoBtn.addEventListener('click', () => {
+            videoWrapper.classList.remove('hidden');
+            videoWrapper.classList.add('show');
+            showVideoBtn.style.display = 'none';
 
-            // すべてのタブとパネルから active クラスを削除
-            deviceTabs.forEach(t => t.classList.remove('active'));
-            instructionPanels.forEach(p => p.classList.remove('active'));
-
-            // クリックされたタブと対応するパネルに active クラスを追加
-            tab.classList.add('active');
-            const targetPanel = document.getElementById(`${device}-instructions`);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
-            }
+            // 動画を自動再生
+            video.play();
 
             // トラッキング
-            trackEvent('SaveGuide', 'switch_device', device);
+            trackEvent('Video', 'show_video', 'Video Button Click');
         });
+    }
+});
+
+// ========================================
+// 保存モーダル
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('save-modal');
+    const openModalBtn = document.getElementById('open-save-modal');
+    const closeModalBtn = modal?.querySelector('.modal-close');
+    const confirmBtn = modal?.querySelector('.modal-confirm-btn');
+    const modalOverlay = modal?.querySelector('.modal-overlay');
+    const modalTabs = modal?.querySelectorAll('.modal-tab');
+    const modalPanels = modal?.querySelectorAll('.modal-panel');
+
+    // モーダルを開く
+    if (openModalBtn && modal) {
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            trackEvent('Modal', 'open', 'Save Modal');
+        });
+    }
+
+    // モーダルを閉じる関数
+    const closeModal = () => {
+        if (modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // 閉じるボタン
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    // オーバーレイクリック
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
+
+    // わかりましたボタン
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', closeModal);
+    }
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal?.classList.contains('show')) {
+            closeModal();
+        }
     });
 
-    // 保存ボタンクリック時のトラッキング
-    const saveButtons = document.querySelectorAll('.btn-video-save');
-    saveButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            trackEvent('Video', 'save_page', 'Save Button Click');
+    // タブ切り替え
+    if (modalTabs && modalPanels) {
+        modalTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const device = tab.dataset.device;
+
+                // すべてのタブとパネルから active を削除
+                modalTabs.forEach(t => t.classList.remove('active'));
+                modalPanels.forEach(p => p.classList.remove('active'));
+
+                // クリックされたタブと対応するパネルに active を追加
+                tab.classList.add('active');
+                const targetPanel = document.getElementById(`modal-${device}`);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+
+                // トラッキング
+                trackEvent('Modal', 'switch_device', device);
+            });
         });
-    });
+    }
 });
