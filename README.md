@@ -281,4 +281,11 @@ git push -u origin main
 **制作日**: 2025年11月3日
 **バージョン**: 1.0.0
 **対象**: NFCカードブランディング用LP
-# Auto-Deploy Test
+
+---
+
+## 🌐 本番URL
+
+**Production**: https://sato-kenta-insurance-consultant-lp-rouge.vercel.app
+
+**最終更新**: 2025年11月7日
