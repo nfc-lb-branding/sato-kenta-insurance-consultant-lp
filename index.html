@@ -28,22 +28,6 @@
                     <p class="hero-subtitle">代理店オーナー / トップセールス</p>
                     <div class="hero-divider"></div>
                     <p class="hero-description">お客様の未来を、共に設計する</p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">TOP 10</div>
-                            <div class="stat-label">5年連続全国</div>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">顧客満足度</div>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <div class="stat-number">1,200+</div>
-                            <div class="stat-label">サポート実績</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -54,21 +38,19 @@
         <div class="container">
             <div class="video-container">
                 <h2 class="video-title">佐藤健太からのメッセージ</h2>
-                <p class="video-subtitle">AIアバターが私の想いをお伝えします</p>
+                <p class="video-subtitle">私の想いを動画でお伝えします</p>
 
-                <button id="show-video-btn" class="btn-show-video">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M10 8L16 12L10 16V8Z" fill="currentColor"/>
-                    </svg>
-                    <span>自己紹介を見る</span>
-                </button>
-
-                <div id="video-player-wrapper" class="video-wrapper hidden">
-                    <video id="intro-video" controls poster="images/hero-photo.jpg">
-                        <source src="videos/intro.mp4" type="video/mp4">
-                        お使いのブラウザは動画再生に対応していません。
-                    </video>
+                <div class="video-placeholder">
+                    <div class="video-thumbnail">
+                        <img src="images/hero-photo.jpg" alt="動画サムネイル">
+                        <div class="play-button">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.9)" stroke="#1a2b4a" stroke-width="2"/>
+                                <path d="M18 16L32 24L18 32V16Z" fill="#1a2b4a"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="video-note">準備中：近日公開予定</p>
                 </div>
             </div>
         </div>
@@ -245,6 +227,28 @@
             <button class="modal-confirm-btn">わかりました</button>
         </div>
     </div>
+
+    <!-- 実績セクション -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">TOP 10</div>
+                    <div class="stat-label">5年連続全国</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">顧客満足度</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">サポート実績</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- フッター -->
     <footer class="footer">
