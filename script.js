@@ -227,23 +227,59 @@ document.addEventListener('click', (e) => {
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const showVideoBtn = document.getElementById('show-video-btn');
-    const videoWrapper = document.getElementById('video-player-wrapper');
-    const video = document.getElementById('intro-video');
+    const videoModal = document.getElementById('video-lightbox');
+    const videoOverlay = videoModal?.querySelector('.video-lightbox__overlay');
+    const videoCloseBtn = videoModal?.querySelector('.video-lightbox__close');
+    const videoPlaceholder = document.getElementById('video-placeholder-card');
+    const watchVideoBtn = document.getElementById('watch-video-btn');
+    const videoElement = document.getElementById('intro-video');
+    const videoEmptyState = videoModal?.querySelector('.video-lightbox__empty');
 
-    if (showVideoBtn && videoWrapper && video) {
-        showVideoBtn.addEventListener('click', () => {
-            videoWrapper.classList.remove('hidden');
-            videoWrapper.classList.add('show');
-            showVideoBtn.style.display = 'none';
+    const hasVideoSource = !!videoElement?.querySelector('source')?.getAttribute('src');
 
-            // 動画を自動再生
-            video.play();
-
-            // トラッキング
-            trackEvent('Video', 'show_video', 'Video Button Click');
-        });
+    if (hasVideoSource && videoEmptyState) {
+        videoEmptyState.style.display = 'none';
     }
+
+    const openVideoModal = () => {
+        if (!videoModal) return;
+
+        videoModal.classList.add('is-open');
+        videoModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        if (hasVideoSource && videoElement) {
+            videoElement.currentTime = 0;
+            videoElement.play().catch(() => {
+                /* autoplay blocked */
+            });
+        }
+
+        trackEvent('Video', 'open_lightbox', hasVideoSource ? 'with-source' : 'empty');
+    };
+
+    const closeVideoModal = () => {
+        if (!videoModal) return;
+
+        videoModal.classList.remove('is-open');
+        videoModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        if (videoElement) {
+            videoElement.pause();
+        }
+    };
+
+    watchVideoBtn?.addEventListener('click', openVideoModal);
+    videoPlaceholder?.addEventListener('click', openVideoModal);
+    videoOverlay?.addEventListener('click', closeVideoModal);
+    videoCloseBtn?.addEventListener('click', closeVideoModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal?.classList.contains('is-open')) {
+            closeVideoModal();
+        }
+    });
 });
 
 // ========================================

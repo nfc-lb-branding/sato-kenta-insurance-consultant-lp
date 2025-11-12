@@ -36,25 +36,47 @@
     <!-- 動画セクション -->
     <section class="video-section">
         <div class="container">
-            <div class="video-container">
+            <div class="video-card">
                 <h2 class="video-title">佐藤健太からのメッセージ</h2>
                 <p class="video-subtitle">私の想いを動画でお伝えします</p>
 
-                <div class="video-placeholder">
-                    <div class="video-thumbnail">
-                        <img src="images/hero-photo.jpg" alt="動画サムネイル">
-                        <div class="play-button">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.9)" stroke="#1a2b4a" stroke-width="2"/>
-                                <path d="M18 16L32 24L18 32V16Z" fill="#1a2b4a"/>
+                <div class="video-preview">
+                    <div class="video-placeholder-card" id="video-placeholder-card">
+                        <div class="placeholder-icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="28" cy="28" r="26" fill="#ffffff" stroke="#d7dfe9" stroke-width="2"/>
+                                <path d="M23 19L39 28L23 37V19Z" fill="#1a2b4a"/>
                             </svg>
                         </div>
+                        <p class="placeholder-title">AI自己紹介動画を再生</p>
+                        <p class="placeholder-description">動画ファイルを設定すると自動的にここに表示されます。</p>
                     </div>
-                    <p class="video-note">準備中：近日公開予定</p>
                 </div>
+
+                <button id="watch-video-btn" class="btn-watch-video" type="button">自己紹介を視聴</button>
+                <p class="video-note" id="video-note">準備中：近日公開予定</p>
             </div>
         </div>
     </section>
+
+    <!-- 動画モーダル -->
+    <div id="video-lightbox" class="video-lightbox" aria-hidden="true">
+        <div class="video-lightbox__overlay" role="presentation"></div>
+        <div class="video-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="video-lightbox-title">
+            <button class="video-lightbox__close" type="button" aria-label="動画を閉じる">&times;</button>
+            <h3 id="video-lightbox-title" class="video-lightbox__title">AI自己紹介動画</h3>
+            <div class="video-lightbox__player">
+                <video id="intro-video" class="video-player" controls playsinline preload="metadata">
+                    <!-- 動画ファイルを設定する際は下の src を変更してください -->
+                    <source src="" type="video/mp4">
+                    お使いのブラウザは動画再生に対応していません。
+                </video>
+                <p class="video-lightbox__empty">
+                    動画ファイルを設定するとここにAI自己紹介動画が表示されます。
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- サービスセクション -->
     <section class="services">
@@ -231,20 +253,22 @@
     <!-- 実績セクション -->
     <section class="stats-section">
         <div class="container">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">TOP 10</div>
-                    <div class="stat-label">5年連続全国</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">顧客満足度</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">1,200+</div>
-                    <div class="stat-label">サポート実績</div>
+            <div class="stats-card">
+                <p class="stats-eyebrow">ACHIEVEMENTS</p>
+                <h3 class="stats-heading">信頼の数字が実績を物語ります</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <p class="stat-number">TOP 10</p>
+                        <p class="stat-label">5年連続全国</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">98%</p>
+                        <p class="stat-label">顧客満足度</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">1,200+</p>
+                        <p class="stat-label">サポート実績</p>
+                    </div>
                 </div>
             </div>
         </div>
