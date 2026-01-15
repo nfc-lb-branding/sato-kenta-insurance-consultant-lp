@@ -4,6 +4,41 @@
  */
 
 // ========================================
+// オープニングアニメーション
+// ========================================
+
+/**
+ * オープニングアニメーションの制御
+ */
+(function initOpening() {
+    document.body.classList.add('opening-active');
+    
+    const opening = document.getElementById('opening');
+    if (!opening) return;
+    
+    // アニメーション完了後にフェードアウト（5秒）
+    const animationDuration = 5000;
+    
+    const closeOpening = () => {
+        if (opening.classList.contains('fade-out')) return;
+        opening.classList.add('fade-out');
+        document.body.classList.remove('opening-active');
+        
+        setTimeout(() => {
+            if (opening.parentNode) opening.remove();
+        }, 1200);
+    };
+    
+    setTimeout(closeOpening, animationDuration);
+    
+    // クリック or Escでスキップ
+    opening.addEventListener('click', closeOpening);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeOpening();
+    });
+})();
+
+// ========================================
 // vCard生成機能
 // ========================================
 
